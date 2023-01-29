@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_類的注意事項</title>
+</head>
+<body>
+    <button>Click</button>
+    <script>
+        /*
+            類的注意事項：
+                1. 因為在ES6中，類沒有變量提升，所以必須先安裝義類，才能通過實例化對象
+                2. 類裡面的共有屬性和方法一定要加 this關鍵字使用
+                3. 類中this的指向問題
+        
+        */
+
+        var that
+        var _that
+
+        class Person{
+            constructor(name, age){
+                // constructor中，this指向的是 創建的實例對象
+                console.log(this);
+                that = this
+
+                this.name = name
+                this.age = age
+                // this.say()
+                this.btn = document.querySelector('button')
+                // 但這個say的調用者是 this.btn，因此this指向的是btn
+                this.btn.onclick = this.say
+            }
+            say(){
+                console.log(this.name);     // undefine
+                console.log(that.name);     // undefine
+                console.log(this);
+            }
+            dance(){
+                // function中，this指向的是donald實例對象，因為donald調用了他
+                console.log(this);
+                _that = this
+            }
+        }
+
+        var donald = new Person('Donald', 20)
+
+        donald.say()
+        console.log(that === donald);
+        
+        donald.dance()
+        console.log(_that === donald);
+
+    </script>
+</body>
+</html>

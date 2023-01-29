@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20_生成器</title>
+</head>
+<body>
+    <script>
+
+        // 生成器其實就是一個特殊的函數
+        // 異步編程（純回調函數）
+        // yield - 函數代碼的分割符
+        function * gen(){
+            console.log(111);
+            yield 111
+            console.log(222);
+            yield 222
+            console.log(333);
+            yield 333
+            console.log(444);
+        }
+        // let iterator = gen()
+        // console.log(iterator.next())
+        // console.log(iterator.next())
+        // console.log(iterator.next())
+        // console.log(iterator.next())
+        gen().next()
+
+
+        // 遍歷
+        // for (const v of gen()) {
+        //     console.log(v);
+        // }
+
+    </script>
+</body>
+</html>

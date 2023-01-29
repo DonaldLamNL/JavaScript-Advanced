@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17_Symbol內置屬性</title>
+</head>
+<body>
+    <script>
+
+        // 1. Symbol.hasInstance
+        class Person{
+            static [Symbol.hasInstance] = function(param){
+                console.log('Checking type', param)
+                return true     // 可以自己控制類型檢測
+            }
+        }
+        let o = {name:'Donald'}
+        console.log(o instanceof Person)
+
+
+
+        // 2. Symbol.isConcatSpreadable
+        const arr = [1,2,3]
+        const arr2 = [4,5,6]
+        arr2[Symbol.isConcatSpreadable] = false
+        console.log(arr.concat(arr2))
+
+
+
+
+
+    </script>
+</body>
+</html>

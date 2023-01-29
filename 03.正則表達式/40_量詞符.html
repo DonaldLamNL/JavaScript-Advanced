@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40_量詞符</title>
+</head>
+<body>
+    <script>
+        
+        console.log('---------- * ----------');
+        // * === >=0
+        var rg1 = /^a*$/
+        console.log(rg1.test(''))       // true
+        console.log(rg1.test('a'))      // true
+        console.log(rg1.test('aaa'))    // true
+        
+        console.log('---------- + ----------');
+        // + === >=1
+        var rg2 = /^a+$/
+        console.log(rg2.test(''))       // false
+        console.log(rg2.test('a'))      // true
+        console.log(rg2.test('aaa'))    // true
+        
+        console.log('---------- ? ----------');
+        // ? === 0||1
+        var rg3 = /^a?$/
+        console.log(rg3.test(''))       // true
+        console.log(rg3.test('a'))      // true
+        console.log(rg3.test('aaa'))    // false
+        
+        console.log('---------- {3} ----------');
+        // {3} === 3
+        var rg4 = /^a{3}$/
+        console.log(rg4.test(''))           // false
+        console.log(rg4.test('aaa'))        // true
+        console.log(rg4.test('aaaaa'))      // false
+        
+        console.log('---------- {3,} ----------');
+        // {3,}
+        var rg5 = /^a{3,}$/
+        console.log(rg5.test(''))           // false
+        console.log(rg5.test('aaa'))        // true
+        console.log(rg5.test('aaaaa'))      // true
+        
+        console.log('---------- {3,6} ----------');
+        // {3,6}
+        var rg6 = /^a{3,6}$/
+        console.log(rg6.test(''))               // false
+        console.log(rg6.test('aaa'))            // true
+        console.log(rg6.test('aaaaaa'))         // true
+        console.log(rg6.test('aaaaaaaa'))       // false
+
+
+    </script>
+</body>
+</html>

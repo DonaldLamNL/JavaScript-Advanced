@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>26_開啟嚴格模式</title>
+</head>
+<body>
+    <!-- 為整個腳本開啟嚴格模式 -->
+    <script>
+        'use strict'    // 開啟嚴格模式
+
+        function fun(){
+
+            // 1. 變量名必須先聲明，再使用
+            // num = 10
+            var num = 10
+
+            // 2. 不能隨意刪除已經聲明的變量
+            // delete num
+            console.log(num);
+
+            // 3. 全局作用於函數中的this是undefined
+            console.log(this);
+
+        }
+        // 4. 構造函數必須使用new調用，否則this指向會報錯
+        function Person(){
+            this.gender = 'Male'
+        }
+        // Person()
+        var donald = new Person()
+        console.log(window.gender);
+
+        // 5. 定時器的this指向仍然是window
+        setTimeout(function(){
+            console.log(this);
+        }, 2000)
+
+        // 6. 不允許重名的參數
+        // function fn(a,a){
+        //     // a = 1
+        //     // a = 2
+        //     console.log(a + a)
+        // }
+        // fn(1,2)
+
+        // 7. 
+            
+    </script>
+
+    <!-- <script>
+        (function(){
+            'use strict'
+        })()
+    </script> -->
+
+    <!-- 為某個函數開啟嚴格模式 -->
+    <script>
+        // function fun(){
+        //     // 嚴格模式執行
+        //     'use strict'
+        // }
+
+        // function fn(){
+        //     // 普通模式執行
+        // }
+    </script>
+</body>
+</html>

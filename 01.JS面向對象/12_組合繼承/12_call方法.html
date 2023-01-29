@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_call方法</title>
+</head>
+<body>
+    
+    <script>
+        function fn(x, y){
+            console.log('I want to drink coffee');
+            console.log(this);
+            console.log(x+y);
+        }
+        
+        var o = {
+            name:'Donald'
+        }
+
+        // 調用函數
+        // fn()
+
+        // call方法調用函數
+        // fn.call()
+
+        // call方法改變函數的this指向
+        fn.call(o, 1, 2)
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28_catch方法</title>
+</head>
+<body>
+    <script>
+
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // 設置 p 的狀態為失敗，並設置失敗的值
+                reject('Error!!!')
+            }, 1000);
+        })
+
+        // p.then(value => {}, reason => {
+        //     console.error(reason)
+        // })
+
+        p.catch(reason => {
+            console.warn(reason);
+        })
+
+    </script>
+</body>
+</html>

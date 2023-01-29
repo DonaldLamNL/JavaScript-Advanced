@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_模板字符串</title>
+</head>
+<body>
+    <script>
+
+        // 1. 聲明
+        let str = `Hello World`
+        console.log(str, typeof str)
+
+        // 2. 內容中可以直接出現換行符
+        let str1 = `<ul>
+                        <li>Hello World 1</li>
+                        <li>Hello World 2</li>
+                        <li>Hello World 3</li>
+                    </ul>`
+
+        // 3. 變量拼接
+        let str2 = 'Hello '
+        let str3 = `${str2}World`
+        console.log(str3)
+
+    </script>
+</body>
+</html>

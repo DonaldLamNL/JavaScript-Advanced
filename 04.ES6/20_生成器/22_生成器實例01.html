@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22_生成器實例01</title>
+</head>
+<body>
+    <script>
+
+        // 異步編程（文件操作、網絡操作ajax, request、數據庫操作）
+        // 一秒後控制台輸出111，然後兩秒後輸出222，然後三秒後輸出333
+
+        // 回調地獄
+        // setTimeout(() => {
+        //     console.log(111);
+        //     setTimeout(() => {
+        //         console.log(222);
+        //         setTimeout(() => {
+        //             console.log(333);
+        //         }, 3000);
+        //     }, 2000);
+        // }, 1000);
+
+        // 生成器函數
+        function one(){
+            setTimeout(() => {
+                console.log(111);
+                iterator.next()
+            }, 1000);
+        }
+        function two(){
+            setTimeout(() => {
+                console.log(222);
+                iterator.next()
+            }, 2000);
+        }
+        function three(){
+            setTimeout(() => {
+                console.log(333);
+                iterator.next()
+            }, 3000);
+        }
+        
+        function * gen(){
+            yield one()
+            yield two()
+            yield three()
+        }
+
+        // 調用生成器函數
+        let iterator = gen()
+        iterator.next()
+
+
+    </script>
+</body>
+</html>

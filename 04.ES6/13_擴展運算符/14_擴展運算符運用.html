@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_擴展運算符運用</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+
+        // 1. 合併數組
+        const boys = ['Donald', 'John']
+        const girls = ['May', 'Lily']
+        // const students = boys.concat(girls)
+        const students = [...boys, ...girls]
+        console.log(students)
+
+
+
+        // 2. 複製數組
+        const men = [...boys]
+        console.log(men)
+
+
+
+        // 3. 將偽數組轉為真數組
+        const divs = document.querySelectorAll('div')
+        console.log(divs)       // NodeList
+        console.log([...divs])  // Array
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25_改變this指向</title>
+</head>
+<body>
+    <button>Click</button>
+    <button>Click</button>
+    <button>Click</button>
+    <script>
+        // 1. call()方法
+        var obj = {
+            name:'Donald'
+        }
+        function funct(x,y){
+            console.log(this, x, y);
+        }
+        funct.call(obj, 'pink', 'blue')
+
+        // 2. apply()方法
+        funct.apply(obj, ['pink', 'blue'])
+        var arr = [1,66,3,99,4]
+        var max = Math.max.apply(null, arr)
+        var min = Math.min.apply(null, arr)
+        console.log(max, min);
+
+        // 3. bind()方法
+        var f = funct.bind(obj, 'red', 'orange')
+        f()
+
+        // var btn = document.querySelector('button')
+        // btn.onclick = function(){
+        //     this.disabled = true
+        //     setTimeout(function(){
+        //         this.disabled = false
+        //     // 給定時器綁定 bind 函數並指向 btn
+        //     }.bind(this), 3000)
+        // }
+
+        var btns = document.querySelectorAll('button')
+        for(var i = 0; i < btns.length; i++){
+            btns[i].onclick = function(){
+                this.disabled = true
+                setTimeout(function(){
+                    this.disabled = false
+                }.bind(this), 3000)
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23_函數定義方式</title>
+</head>
+<body>
+    <script>
+        // 1. 命名函數
+        function f(){}
+
+        // 2. 通過函數表達式(匿名函數)
+        var fn = function(){}
+
+        // 3. new Function()
+        var fun = new Function('a', 'b', 'console.log(a + b)')
+
+        console.dir(fun)
+        console.log(fun instanceof Object)
+
+    </script>
+</body>
+</html>

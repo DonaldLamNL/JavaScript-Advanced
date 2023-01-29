@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25_Promise封裝ajax</title>
+</head>
+<body>
+    <script>
+
+        const p = new Promise(function(resolve, reject){
+            // 1. 創建對象
+            const xhr = new XMLHttpRequest()
+
+            // 2. 初始化
+            xhr.open("GET", 'https://url-api.glitch.me/?from=mdn&excitement=high&likelihood=inconceivable')
+
+            // 3. 發送
+            xhr.send()
+
+            // 4. 綁定事件，處理綁定結果
+            xhr.onreadystatechange = function(){
+                // 判斷
+                if(xhr.readyState === 4){
+                    // 判斷響應狀態碼
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        // 表示成功
+                        // console.log(xhr.response)
+                        resolve(xhr.response)
+                    }else{
+                        // 表示失敗
+                        // console.error(xhr.status)
+                        reject(xhr.status)
+                    }
+                }
+            }
+        })
+
+        // 指定回調
+        p.then(function(value){
+            console.log(value)
+        }, function(reason){
+            console.error(reason)
+        })
+
+    </script>
+</body>
+</html>

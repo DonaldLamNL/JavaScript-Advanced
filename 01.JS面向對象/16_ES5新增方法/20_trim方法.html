@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20_trim方法</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <button>Click</button>
+    <div></div>
+    <script>
+        var str = '    don  ald     '
+        console.log(str);
+        console.log(str.trim());
+
+        var input = document.querySelector('input')
+        var button = document.querySelector('button')
+        var div = document.querySelector('div')
+        button.onclick = function(){
+
+            var str = input.value.trim()
+            if(str === ''){
+                alert('Please input')
+            }else{
+                div.innerHTML = input.value
+                console.log(str);
+                console.log(str.length);
+            }
+        }
+    </script>
+</body>
+</html>

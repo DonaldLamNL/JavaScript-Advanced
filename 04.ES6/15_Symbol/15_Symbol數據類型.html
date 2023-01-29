@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15_Symbol數據類型</title>
+</head>
+<body>
+    <script>
+
+        // 創建 Symbol
+        let s = Symbol()
+        // console.log(s, typeof s)
+        let s2 = Symbol('Donald')
+        let s3 = Symbol('Donald')
+        console.log(s2 === s3)      // false
+        
+        // Symbol.for 創建
+        let s4 = Symbol.for('Donald')
+        let s5 = Symbol.for('Donald')
+        console.log(s4 === s5)
+
+        // 1. 不能與其他數據進行運算
+        // let result = s + 100
+        // let result = s > 100
+        // let result = s + '100'
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_原型中this的指向</title>
+</head>
+<body>
+    <script>
+        function Person(uname, age){
+            this.uname = uname
+            this.age = age
+        }
+        var that
+        Person.prototype.eat = function(){
+            console.log('I am eating');
+            that = this
+        }
+
+        var donald = new Person('Donald', 18)
+        var john = new Person('John', 19)
+
+        // 1. 構造函數中，this指向的是實例對象
+        donald.eat()
+        console.log(that === donald);
+
+        // 2. 原型對象函數裡的this指向的是實例對象
+
+    </script>
+</body>
+</html>

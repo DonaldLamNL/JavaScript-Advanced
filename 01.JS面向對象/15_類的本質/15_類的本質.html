@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15_類的本質</title>
+</head>
+<body>
+    <script>
+        class Person{}
+        console.log(typeof Person);     // function
+
+        // 類與構造函數的共同點：
+
+        // 1. 構造函數有原型對象prototype
+        console.log(Person.prototype);
+        
+        // 2. 構造函數原型對象prototype裡面有constructor指向構造函數本身
+        console.log(Person.prototype.constructor);
+
+        // 3. 構造函數可以通過原型對象添加方法
+        Person.prototype.eat = function(){
+            console.log('I am eating')
+        }
+
+        // 4. 構造函數創建的實例對象有__proto__原型指向構造函數的原型對象
+        var donald = new Person()
+        console.log(donald.__proto__ === Person.prototype);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

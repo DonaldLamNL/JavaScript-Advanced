@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16_forEach方法</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3]
+        var sum = 0
+        arr.forEach(function(value, index, array){
+            console.log('value =', value);
+            console.log('index =', index);
+            console.log('array =', array.toString());
+            sum += value
+        })
+        console.log('sum =', sum);
+    </script>
+</body>
+</html>

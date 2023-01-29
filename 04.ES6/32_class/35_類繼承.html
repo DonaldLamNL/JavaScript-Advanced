@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35_類繼承</title>
+</head>
+<body>
+    <script>
+
+        class Phone{
+            constructor(brand, price){
+                this.brand = brand
+                this.price = price
+            }
+            call(){
+                console.log('I am calling')
+            }
+        }
+
+        class SmartPhone extends Phone{
+            constructor(brand, price, color, size){
+                super(brand, price)     // Phone.call(this, brand, price)
+                this.color = color
+                this.size = size
+            }
+            change(){
+                console.log('I can change the time')
+            }
+        }
+
+        const p = new SmartPhone('iphone', 8999, 'black', '10inch')
+        console.log(p)
+
+    </script>
+</body>
+</html>

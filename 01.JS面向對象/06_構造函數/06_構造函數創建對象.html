@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_構造函數創建對象</title>
+</head>
+<body>
+    <script>
+        // A. 利用 new Object() 創建對象
+        var obj1 = new Object()
+
+        // B. 利用 對象字面量 創建對象
+        var obj2 = {}
+
+        // C. 利用 構造函數 創建對象
+        function Person(uname, age){
+            // 1. 實例成員
+            this.uname = uname
+            this.age = age
+            this.eat = function(){
+                console.log('I am eating');
+            }
+        }
+
+        var donald = new Person('Donald', 18)
+        var john = new Person('John', 19)
+
+        // 實例成員只能通過實例化的對象來訪問
+        console.log(donald.uname);
+        john.eat()
+        // 不可以通過構造函數來訪問實例成員
+        console.log('@', Person.age);
+
+        // 2. 靜態成員 在構造函數身上添加的成員
+        Person.gender = 'Male'
+        // 靜態成員只能通過構造函數訪問
+        console.log(Person.gender);
+        // 不可以通過實例對象來訪問
+        console.log('@', donald.gender);
+
+        // 問題、浪費內存
+        console.log('?', donald.eat === john.eat);  // false
+
+
+    </script>
+</body>
+</html>

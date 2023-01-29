@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42_用戶名驗證</title>
+    <style>
+        span {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .right {
+            color: green;
+        }
+
+        .wrong {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="uname">
+    <span>請輸入用戶名</span>
+    <script>
+
+        /*
+            功能需求：
+                1. 如果用戶名輸入合法，則後面提示信息：用戶名輸入合法，且顏色為綠色
+                2. 如果用戶名輸入不合法，則後面提示信息：用戶名輸入非法，且顏色為紅色
+        */
+        var rg = /^[a-zA-Z0-9_-]{6,16}$/
+
+        var uname = document.querySelector('.uname')
+        var span = document.querySelector('span')
+
+        uname.onblur = function(){
+            if(rg.test(this.value)){
+                console.log('Correct')
+                span.className = 'right'
+                span.innerText = '用戶名輸入合法'
+            }else{
+                console.log('Wrong')
+                span.className = 'wrong'
+                span.innerText = '用戶名輸入非法'
+            }
+        }
+
+
+    </script>
+</body>
+</html>

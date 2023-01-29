@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_原型構造函數</title>
+</head>
+<body>
+    <script>
+        function Person(uname, age){
+            this.uname = uname
+            this.age = age
+        }
+
+        // Person.prototype.eat = function(){
+        //     console.log('I am eating');
+        // }
+        // Person.prototype.say = function(){
+        //     console.log('Hello')
+        // }
+        Person.prototype = {
+            // 很多情況下需要手動利用constructor屬性，指回原來的構造函數
+            constructor: Person,
+            eat:function(){
+            console.log('I am eating');
+            },
+            say(){
+                console.log('Hello')
+            }
+        }
+
+        var donald = new Person('Donald', 18)
+        var john = new Person('John', 19)
+
+        // 原型構造器
+        console.log(Person.prototype)
+        console.log(donald.__proto__)
+        console.log(Person.prototype.constructor)
+        console.log(donald.__proto__.constructor)
+
+        
+
+    </script>
+</body>
+</html>

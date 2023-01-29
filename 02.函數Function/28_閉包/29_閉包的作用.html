@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29_閉包的作用</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            var num = 10
+            return function(){
+                console.log(num);
+            }
+            // return fun
+        }
+
+        // 實現 fn 外部的作用域訪問 fn 內部的局部變量
+        var f = fn()
+        f()
+        // 相當於
+        // var f = function fun(){
+        //     console.log(num);
+        // }
+
+
+    </script>
+</body>
+</html>

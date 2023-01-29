@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>36_getter與setter</title>
+</head>
+<body>
+    <script>
+
+        class Phone{
+            prices = 10
+            get price(){
+                console.log('Price is', this.prices)
+                // return this.price
+            }
+            set price(price){
+                this.prices = price
+                console.log('Price has been changed');
+            }
+        }
+
+        let p = new Phone()
+        console.log(p.prices)
+        p.price = 20
+        console.log(p.prices)
+
+    </script>
+</body>
+</html>

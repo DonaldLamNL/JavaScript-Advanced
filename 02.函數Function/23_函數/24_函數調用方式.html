@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24_函數調用方式</title>
+</head>
+<body>
+    <script>
+        // 1. 普通函數
+        function fn(){
+            console.log('Hello World');
+        }
+        fn()
+        fn.call()
+
+        // 2. 對象的方法
+        var obj = {
+            say: function(){
+                console.log('Hi');
+            }
+        }
+        obj.say()
+
+        // 3. 構造函數
+        function Person(){}
+        new Person()
+
+        // 4. 綁定事件函數
+        btn.onclick = function(){}
+
+        // 5. 定時器函數
+        setInterval(function(){}, 1000);
+
+        // 6. 立即執行函數
+        (function(){
+            console.log('Hello');
+        })()
+
+    </script>
+</body>
+</html>

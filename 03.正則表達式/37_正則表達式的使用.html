@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37_正則表達式的使用</title>
+</head>
+<body>
+    <script>
+        // 1. 利用 RegExp 對象來創建正則表達式
+        var regexp = new RegExp(/123/)
+        console.log(regexp);
+
+        // 2. 利用字面量來創建
+        var reg = /123/
+
+        // 3. 用於檢測字符串是否符合正則表達式要求規範的方法
+        console.log(reg.test(123));
+        console.log(reg.test('abc'));
+
+    </script>
+</body>
+</html>

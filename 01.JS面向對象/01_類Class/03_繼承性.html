@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_繼承性</title>
+</head>
+<body>
+    <script>
+        class Parent{
+            constructor(x,y){
+                this.x = x
+                this.y = y
+            }
+            moeny(){
+                console.log(100);
+            }
+            sum(){
+                console.log(this.x + this.y);
+            }
+            say(){
+                return 'Parent'
+            }
+        }
+
+        // 類的繼承
+        class Child extends Parent{
+            constructor(x,y){
+                // super 必須在子類 this 之前調用
+                super(x,y)  // 調用了父類的構造函數
+                
+                // 子類繼承父類的方法同時擴展其他方法
+                this.x = x
+                this.y = y
+            }
+
+            subtract(){
+                console.log(this.x - this.y);
+            }
+
+            say(){
+                // console.log('Child');
+                // super.say就是調用父類中的普通函數 say()
+                console.log(super.say());
+            }
+        }
+
+        var donald = new Child()
+        donald.moeny()
+        donald.say()
+
+        var john = new Child(1,2)
+        john.sum()
+        john.subtract()
+
+    </script>
+</body>
+</html>

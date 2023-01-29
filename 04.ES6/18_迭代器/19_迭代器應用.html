@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19_迭代器應用</title>
+</head>
+<body>
+    <script>
+
+        const school = {
+            name:'CUHK',
+            students:[
+                'Donald',
+                'John',
+                'May',
+                'Lily'
+            ],
+            [Symbol.iterator](){
+                // 索引變量
+                let index = 0
+                return {
+                    next: () => {
+                        if(index < this.students.length){
+                            const result = {
+                                value: this.students[index],
+                                done: false
+                            }
+                            // 下標自增
+                            index++
+                            return result
+                        }else{
+                            return {
+                                value: undefined,
+                                done: true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
+            遍歷對象
+                需求：使用 for...of 遍歷，每次返回的是對象的屬性的數組裡的成員
+        */ 
+
+        for (let v of school) {
+            console.log(v)  // school is not iterable
+        }
+
+    </script>
+</body>
+</html>

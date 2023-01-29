@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_箭頭函數案例</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="ad"></div>
+    <script>
+        /*
+            案例一、點擊 div 2秒後更換顏色
+        */
+        // 獲取元素
+        let ad = document.getElementById('ad')
+        // 綁定事件
+        ad.addEventListener('click', function(){
+            // 以前處理方法：保存 this 的值
+            let _this = this
+
+            // 定時器
+            // setTimeout(function(){
+            //     // 修改背景顏色
+            //     // this.style.background = 'pink'     // Cannot set properties of undefined
+            //     _this.style.background = 'pink'
+            // }, 2000)
+
+            setTimeout(() => {
+                this.style.background = 'pink'
+            }, 2000)
+        })
+
+
+
+        /*
+            案例二、從數組中返回偶數元素
+        */
+        const arr = [1,6,9,10,100,25]
+        // const result = arr.filter(function(item){
+        //     return item % 2 == 0
+        // })
+        const result = arr.filter( item => item % 2 == 0)
+        console.log(result)
+
+
+
+    </script>
+</body>
+</html>

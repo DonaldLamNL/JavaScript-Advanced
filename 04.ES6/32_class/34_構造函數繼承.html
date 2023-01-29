@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33_靜態成員</title>
+</head>
+<body>
+    <script>
+
+        /*
+            構造函數實現
+        */ 
+        // 父構造函數
+        function Phone(brand, price){
+            this.brand = brand
+            this.price = price
+        }
+
+        Phone.prototype.call = function(){
+            console.log('I am calling')
+        }
+
+        // 子構造函數
+        function SmartPhone(brand, price, color, size){
+            Phone.call(this, brand, price)
+            this.color = color
+            this.size = size
+        }
+
+        // 設置子級別構造函數的原型
+        SmartPhone.prototype = new Phone()
+        SmartPhone.prototype.constructor = SmartPhone
+
+        // 聲明子類的方法
+        SmartPhone.prototype.change = function(){
+            console.log('I can change the time')
+        }
+
+        const p = new SmartPhone('iphone', 8999, 'black', '10inch')
+        console.log(p)
+
+
+
+    </script>
+</body>
+</html>

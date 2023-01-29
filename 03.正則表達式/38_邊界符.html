@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>38_邊界符</title>
+</head>
+<body>
+    <script>
+        // 正則表達式裡面不需要加引號，不管是數字型還是字符串型
+
+        var rg = /abc/  // 只要包含 abc 這個字符串，返回的都是true
+        console.log(rg.test('abc'));
+        console.log(rg.test('abcd'));
+        console.log(rg.test('aabcd'));
+        console.log('---------------------------');
+        var rg1 = /^abc/   // 必須以 abc 這個字符串開頭
+        console.log(rg1.test('abc'));      // true
+        console.log(rg1.test('abcd'));     // true
+        console.log(rg1.test('aabcd'));    // false
+        console.log('---------------------------');
+        var rg2 = /^abc$/  // 精確匹配，要求必須是 abc 字符串
+        console.log(rg2.test('abc'));      // true
+        console.log(rg2.test('abcd'));     // false
+        console.log(rg2.test('aabcd'));    // false
+        console.log(rg2.test('abcabc'));   // false
+        
+    </script>
+</body>
+</html>

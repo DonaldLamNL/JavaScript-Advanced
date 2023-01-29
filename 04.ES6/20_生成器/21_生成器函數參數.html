@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21_生成器函數參數</title>
+</head>
+<body>
+    <script>
+
+        function * gen(arg){
+            console.log(arg);
+            let one = yield 111
+            console.log(one)
+            let two = yield 222
+            console.log(two)
+            let three = yield 333
+            console.log(three)
+        }
+
+        let iterator = gen('AAA')
+        console.log(iterator.next())
+        // next 方法可以傳入實參
+        console.log(iterator.next('BBB'))
+        console.log(iterator.next('CCC'))
+        console.log(iterator.next('DDD'))
+
+    </script>
+</body>
+</html>

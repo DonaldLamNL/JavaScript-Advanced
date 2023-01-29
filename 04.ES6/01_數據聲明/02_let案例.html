@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_let案例</title>
+    <style>
+        .item{
+            height: 50px;
+            width: 100px;
+            border: 1px green solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-header">點擊切換顏色</h2>
+        <h2 class="item"></h2>
+        <h2 class="item"></h2>
+        <h2 class="item"></h2>
+        <h2 class="item"></h2>
+    </div>
+    <script>
+        // 獲取元素對象
+        let items = document.getElementsByClassName('item')
+
+        // 遍歷並綁定時間
+        for(let i = 0; i < items.length; i++){
+            items[i].onclick = function(){
+                // 修改元素的背景顏色
+                items[i].style.background = 'pink'
+                // this.style.background = 'pink'
+            }
+        }
+    </script>
+</body>
+</html>

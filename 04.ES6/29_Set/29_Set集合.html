@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29_Set集合</title>
+</head>
+<body>
+    <script>
+
+        // 聲明一個 Set
+        let s = new Set()
+        let s2 = new Set(['Donald', 'John', 'May', 'Lily', 'Donald'])
+
+        // console.log(s, typeof s)    // object
+        console.log(s2)    // 自動去除重複的元素
+        
+        // 1. 元素的個數 size
+        console.log(s2.size)
+        
+        // 2. 添加元素 add
+        s2.add('Tom')
+        console.log(s2)
+
+        // 3. 刪除元素 delete
+        s2.delete('John')
+        console.log(s2)
+        
+        // 4. 檢測 has
+        console.log(s2.has('Donald'))
+    
+        // 5. 清空 clear
+        // s2.clear()
+        // console.log(s2)
+        
+        // for...of 遍歷
+        for (const v of s2) {
+            console.log(v);
+        }
+
+
+    </script>
+</body>
+</html>

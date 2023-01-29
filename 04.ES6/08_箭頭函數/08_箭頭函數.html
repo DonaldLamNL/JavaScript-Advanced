@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_箭頭函數</title>
+</head>
+<body>
+    <script>
+
+        // 聲明箭頭函數        
+        let sum = (a, b) => {
+            return a + b
+        }
+
+        // 調用函數
+        let result = sum(1, 2)
+        console.log(result)
+
+
+
+        // 1. this 是靜態的
+        window.name = 'Window'
+        const person = {
+            name: 'Object'
+        }
+
+        function getName1(){
+            console.log(this.name)
+        }
+        let getName2 = () => {
+            console.log(this.name)
+        }
+
+        // 直接調用
+        getName1()
+        getName2()
+
+        // call 方法調用
+        getName1.call(person)
+        getName2.call(person)
+
+
+
+        // 2. 不能作為構造函數實例化對象
+        // let Person = (name, age) => {
+        //     this.name = name
+        //     this.age = age
+        // }
+
+        // let donald = new Person('Donald', 18)
+        // console.log(donald)     // Person is not a constructor
+
+
+
+        // 3. 不能使用 arguments 變量
+        // let fn = () => {
+        //     console.log(arguments)
+        // }
+        // fn(1,2,3)   // arguments is not defined
+
+
+
+        // 4.1 省略()，只有一個形參
+        let double = n => {
+            return n + n
+        }
+        console.log(double(9))
+        
+        // 4.2 省略{}，當代碼體只有一條語句時，此時 return 必須省略
+        let square = n => n * n
+        console.log(square(9))
+
+
+    </script>
+</body>
+</html>

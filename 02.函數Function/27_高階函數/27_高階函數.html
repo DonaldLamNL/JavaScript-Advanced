@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27_高階函數</title>
+</head>
+<body>
+    <script>
+        // 高階函數：作為參數傳遞
+        function fn(a, b, callback){
+            console.log(a + b)
+            callback && callback()
+        }
+        fn(1, 2, function(){
+            console.log('Hello World');
+        })
+    </script>
+</body>
+</html>

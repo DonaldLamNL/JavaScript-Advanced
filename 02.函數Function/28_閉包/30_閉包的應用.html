@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30_閉包的應用</title>
+</head>
+<body>
+    <ul class="nav">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+        <li>Orange</li>
+    </ul>
+
+    <script>
+        var lis = document.querySelectorAll('li')
+        
+        // 案例一、實現點擊li輸出當前索引號
+        // 1. 動態添加方式
+        for(var i = 0; i < lis.length; i++){
+            lis[i].index = i
+            lis[i].onclick = function(){
+                console.log(this.index);
+            }
+        }
+
+        // 2. 閉包方式
+        for(var i = 0; i < lis.length; i++){
+            // 立即執行函數也稱為一個小閉包，因為立即執行函數裡面任何一個函數都可以使用它的i變量
+            (function(i){
+                lis[i].onclick = function(){
+                    console.log(i);
+                }
+            })(i)
+        }
+
+
+
+        // 案例二、3秒後打印元素內容
+        for(var i = 0; i < lis.length; i++){
+            (function(i){
+                setTimeout(function(){
+                    console.log(lis[i].innerHTML);
+                }, 3000);
+            })(i)
+        }
+
+
+
+        // 案例三、的士收費
+        /*
+            首2公里27，每200米1.9，行李6
+         */
+        var taxiPrice = (function(){
+            var start = 27
+            var total = 0
+            return{
+                // 每200米價格
+                price: function(distance){
+                    if(distance <= 2){
+                        total = start
+                    }else{
+                        total = start + (distance - 2) / 0.2 * 1.9
+                    }
+                    return total
+                },
+                // 行李數量價格
+                luggage: function(num){
+                    return total += num * 6
+                }
+            }
+        })()
+
+        console.log(taxiPrice.price(3));
+        console.log(taxiPrice.luggage(2));
+        
+        console.log(taxiPrice.price(4));
+        console.log(taxiPrice.luggage(0));
+
+    </script>
+    
+</body>
+</html>

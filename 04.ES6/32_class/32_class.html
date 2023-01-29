@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>32_class</title>
+</head>
+<body>
+    <script>
+
+        /*
+            構造函數實現面向對象
+        */ 
+        // function Phone(brand, price){
+        //     this.brand = brand
+        //     this.price = price
+        // }
+        // // 添加方法
+        // Phone.prototype.call = function(){
+        //     console.log('I am calling')
+        // }
+        // // 實例化對象
+        // let p1 = new Phone('IPhone', 5999)
+        // console.log(p1)
+        // p1.call()
+        
+        /*
+            Class 實現
+        */ 
+        class Phone{
+            // 構造器
+            constructor(brand, price){
+                this.brand = brand
+                this.price = price
+            }
+            // 方法必須使用該語法，不能使用 ES5 的對象完整式
+            call(){
+                console.log('I am calling')
+            }
+        }
+
+        let p2 = new Phone('Samsung', 3999)
+        console.log(p2)
+
+    </script>
+</body>
+</html>

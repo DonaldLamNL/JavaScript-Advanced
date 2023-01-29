@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_解構賦值</title>
+</head>
+<body>
+    <script>
+        // 1. 解構數組
+        let arr = [1, 2, 3]
+        let [a, b] = arr
+        console.log(a)
+        console.log(b)
+
+        // 2. 解構對象
+        let person = {name:'Donald', age:20, gender:'M'}
+        // let {gender, name, age} = person
+        // console.log(name)
+        // console.log(age)
+        // console.log(gender)
+        
+        let {name: myName} = person
+        console.log(myName)
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_類的共有方法</title>
+</head>
+<body>
+    <script>
+        // 創建類 class 
+        class Person{
+            // 構造函數
+            constructor(name, age){
+                this.name = name;
+                this.age = age
+            }
+
+            // 共有方法
+            eat(food){
+                console.log(this.name, 'like eating', food);
+            }
+        }
+
+        // 利用類創建對象
+        var donald = new Person('Donald', 18)
+        var john = new Person('John', 20)
+        donald.eat('sushi')
+        john.eat('pizza')
+
+    </script>
+</body>
+</html>

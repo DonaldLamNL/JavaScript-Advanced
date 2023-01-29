@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_rest參數</title>
+</head>
+<body>
+    <script>
+
+        // ES5 中獲取實參方式
+        function students(){
+            console.log(arguments)
+        }
+        students('Donald', 'John', 'May')
+
+
+
+        // rest 參數
+        function food(...args){
+            console.log(args)
+        }
+        food('Apple', 'Banana', 'Orange')
+
+        // rest 參數必須放到參數的最後
+        function fn(a, b, ...args){
+            console.log(a,b,args)
+        }
+        fn(1,2,3,4,5,6)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23_Promise</title>
+</head>
+<body>
+    <script>
+
+        // 實例化 Promise 對象
+        const p = new Promise(function(resolve, reject){
+            // 異步操作
+            setTimeout(() => {
+                // 成功
+                // let data = 'Database'
+                // resolve(data)
+
+                // 錯誤
+                let err = 'Error'
+                reject(err)
+            }, 1000);
+
+        })
+
+        console.log(p);
+
+        // 調用 Promise 對象 then 方法
+        p.then(
+            function(value){
+                console.log(value);
+            },
+            function(reason){
+                console.error(reason)
+            }    
+        )
+
+    </script>
+</body>
+</html>

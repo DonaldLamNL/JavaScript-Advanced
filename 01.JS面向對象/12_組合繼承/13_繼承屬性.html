@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13_繼承屬性</title>
+</head>
+<body>
+    <script>
+        // 父構造函數
+        function Parent(uname, age){
+            // this指向的是父構造函數的實例
+            this.uname = uname
+            this.age = age
+        }
+
+        // 子構造函數
+        function Child(uname, age, gender){
+            // 調用父構造函數，並把父構造函數的this指向子構造函數的this
+            Parent.call(this, uname, age)
+            this.gender = gender
+        }
+
+        var donald = new Child('Donald', 20, 'M')
+        console.log(donald);
+    </script>
+</body>
+</html>

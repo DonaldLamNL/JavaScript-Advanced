@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_原型對象繼承方法</title>
+</head>
+<body>
+    <script>
+        function Parent(uname, age){
+            this.uname = uname
+            this.age = age
+        }
+        Parent.prototype.eat = function(){
+            console.log('I am eating');
+        }
+
+        function Child(uname, age, gender){
+            Parent.call(this, uname, age)
+            this.gender = gender
+        }
+        
+        // 此操作讓子構造函數的原型對象指向父構造函數的原型對象
+        // Child.prototype = Parent.prototype
+        // 因此修改子構造函數的原型對象，是在修改父構造函數的原型對象
+        Child.prototype.say = function(){
+            console.log('Hello');
+        }
+
+        // 解決方法：
+        Child.prototype = new Parent()
+        // 利用對象修改了原型對象，需要使用constructor重新指向原來的構造函數
+        Child.prototype.constructor = Child
+
+        var donald = new Child('Donald', 20, 'M')
+        console.log(donald);
+        console.log(Child.prototype.constructor);
+        
+        // console.log(Parent.prototype);
+
+    </script>
+</body>
+</html>

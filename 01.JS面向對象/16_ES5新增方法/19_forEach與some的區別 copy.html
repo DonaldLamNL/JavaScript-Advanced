@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19_forEach與some的區別</title>
+</head>
+<body>
+    <script>
+        var arr = ['red', 'green', 'blue', 'pink']
+
+        // 1. forEach實現
+        arr.forEach(function(value){
+            if(value === 'green'){
+                console.log('green');
+                return true     // forEach方法裡如果遇到return true不會終止遍歷
+            }
+            console.log('color');
+        })
+
+        console.log('==============================');
+
+        // 2. some實現
+        arr.some(function(value){
+            if(value === 'green'){
+                console.log('green');
+                return true     // some方法裡如果遇到return true就會終止遍歷
+            }
+            console.log('color');
+        })
+
+
+    </script>
+</body>
+</html>

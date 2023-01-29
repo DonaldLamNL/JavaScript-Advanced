@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22_Object.defineProperty方法</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            pname: 'Donald',
+            age: 18
+        }
+
+        // 實現對象添加和修改屬性
+        // obj.gender = 'Male'
+        obj.pname = 'May'
+
+        // defineProperty方法實現
+        Object.defineProperty(obj, 'gender', {
+            // 1. value，設置屬性的值
+            value: 'Female',
+
+            // 2. writable，值是否可重寫
+            writable: false,
+
+            // 3. enumerable，目標屬性是否可以被枚舉
+            enumerable: false,
+
+            // 4. configurable，目標屬性是否可以被刪除 或 是否可以在此修改特性
+            configurable: false,
+        })
+
+        obj.gender = 'Male'     // 2. 設置不允許重寫(修改)
+        var arr = Object.keys(obj)      // 3. 設置不可枚舉
+        delete obj.gender       // 4. 設置不可被刪除˘
+        delete obj.pname       // 4. 設置不可被刪除˘
+
+        console.log(arr);
+        console.log(obj);
+
+    </script>
+</body>
+</html>

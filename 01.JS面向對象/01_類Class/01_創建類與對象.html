@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_創建類與對象</title>
+</head>
+<body>
+    <script>
+        // 創建類 class 
+        class Person{
+            // 構造函數
+            constructor(name, age){
+                this.name = name;
+                this.age = age
+            }
+        }
+
+        // 利用類創建對象
+        var donald = new Person('Donald', 18);
+        var john = new Person('John', 20);
+        console.log(donald.name, ' ', donald.age);
+        console.log(john.name, ' ', john.age);
+
+    </script>
+</body>
+</html>

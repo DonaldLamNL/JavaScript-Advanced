@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_原型鏈</title>
+</head>
+<body>
+    <script>
+        function Person(uname, age){
+            this.uname = uname
+            this.age = age
+        }
+        Person.prototype.eat = function(){
+            console.log('I am eating');
+        }
+
+        var donald = new Person('Donald', 18)
+        var john = new Person('John', 19)
+
+        // 1. 只要是對象就有 __proto__ 原型，指向原型對象
+        console.log(Person.prototype);
+        
+        // 2. Person原型對象裡面的__proto__原型指向的是 Object.prototype
+        console.log(Person.prototype.__proto__ === Object.prototype);
+
+        // 3. Object原型對象的原型指向null
+        console.log(Object.prototype.__proto__);
+
+        donald.gender = 'Male'
+        Person.prototype.gender = 'Female'
+        console.log(donald.gender);
+        console.log(john.gender);
+
+        // 實例及對象身上都沒有 toString() 方法，則會查找到 Object 身上
+        console.log(donald.age.toString());
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33_靜態成員</title>
+</head>
+<body>
+    <script>
+
+        /*
+            構造函數實現
+        */ 
+        // function Phone(){}
+        // let nokia = new Phone()
+
+        // // 實例對象是實例對象，函數對象是函數對象，他們之間的屬性與方法不相通
+        // Phone.name = '手機'
+        // Phone.change = function(){
+        //     console.log('Change the time')
+        // }
+        // console.log(nokia.name)
+        // // nokia.change()
+
+        // // 實例對象的屬性與方法和構造函數的原型對象想相通
+        // Phone.prototype.price = 2000
+        // console.log(nokia.price)
+
+        /*
+            class 實現
+        */ 
+        class Phone{
+            // 靜態屬性與方法
+            static name = '手機'
+            static change(){
+                console.log('Change the time')
+            }
+        }
+        let nokia = new Phone()
+        console.log(nokia.name)
+        nokia.change()
+
+    </script>
+</body>
+</html>

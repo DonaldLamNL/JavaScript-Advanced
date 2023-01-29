@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31_Map</title>
+</head>
+<body>
+    <script>
+
+        let m = new Map()
+
+        // 2. 添加元素 set
+        m.set('name', 'Donald')
+        m.set('say', function(){
+            console.log('Hello World');
+        })
+        let key = {
+            school: 'CUHK'
+        }
+        m.set(key, ['CSCI', 'CENG', 'AIST'])
+        console.log(m)
+
+        // 1. 元素個數 size
+        console.log(m.size)
+        
+        // 3. 獲取
+        console.log(m.has('say'));
+        console.log(m.has(key));
+
+        // 4. 刪除元素 delete
+        // m.delete('name')
+        // console.log(m)
+
+        // 6. 清空
+        // m.clear()
+        // console.log(m)
+        
+        for (const v of m) {
+            console.log(v);
+        }
+
+
+    </script>
+</body>
+</html>

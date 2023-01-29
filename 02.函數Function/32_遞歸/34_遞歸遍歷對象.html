@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>34_遞歸遍歷對象</title>
+</head>
+<body>
+    <script>
+        var food = [
+            {
+                id: 1,
+                name: 'Noodle',
+                goods: [
+                    {
+                        id: 11,
+                        name: 'Ramen',
+                        goods:[
+                            {
+                                id: 111,
+                                name: 'Soy Sauce Ramen'
+                            },
+                            {
+                                id: 112,
+                                name: 'Miso Ramen'
+                            }
+                        ]
+                    },
+                    {
+                        id: 12,
+                        name: 'Spaghetti'
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: 'Bread',
+                goods: [
+                    {
+                        id: 21,
+                        name: 'Croissant'
+                    }
+                ]
+            }
+        ]
+        // 輸入id號，返回對象
+        // 1. 利用forEach遍歷對象
+        function getID(json, id, obj){
+            obj = obj || {}
+            json.forEach(function(item){
+                if(item.id === id){
+                    // console.log(item)
+                    obj = item
+                }else if(item.goods && item.goods.length > 0){
+                    obj = getID(item.goods, id, obj)
+                }
+            })
+            return obj
+        }
+        console.log(getID(food, 1));
+        console.log(getID(food, 2));
+        console.log(getID(food, 11));
+        console.log(getID(food, 12));
+        console.log(getID(food, 111));
+        console.log(getID(food, 112));
+        
+        
+    </script>
+</body>
+</html>

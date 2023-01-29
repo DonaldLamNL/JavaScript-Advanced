@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31_閉包思考題</title>
+</head>
+<body>
+    <script>
+        var name = 'The Window'
+        var obj = {
+            name: 'My Object',
+            getName: function(){
+                return function(){
+                    return this.name
+                }
+            }
+        }
+        console.log(obj.getName()());
+        /*
+            解析：
+            var f = obj.getName()()
+
+            ===
+            
+            var f = function(){
+                return this.name
+            }
+            f()
+            
+            立即執行函數的this指向Window，因此是The Window
+        */
+        
+
+        var name = 'The Window'
+        var obj = {
+            name: 'My Object',
+            getName: function(){
+                var that = this
+                return function(){
+                    return that.name
+                }
+            }
+        }
+        console.log(obj.getName()());
+        /*
+            解析：
+            var f = obj.getName()()
+
+            ===
+            
+            var that = this     // that = this = obj
+            var f = function(){
+                return that.name    // that.name = obj.name
+            }
+            
+            因此是My Object，因為f()裡面運用了that這個getName的局部變量，因此閉包產生
+        */
+
+    </script>
+</body>
+</html>

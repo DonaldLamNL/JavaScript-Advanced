@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_原型對象</title>
+</head>
+<body>
+    <script>
+        function Person(uname, age){
+            this.uname = uname
+            this.age = age
+            // this.eat = function(){
+            //     console.log('I am eating');
+            // }
+        }
+
+        Person.prototype.eat = function(){
+            console.log('I am eating');
+        }
+
+        var donald = new Person('Donald', 18)
+        var john = new Person('John', 19)
+
+        // 每個構造函數裡都有prototype對象
+        console.dir(Person);
+        console.log('?', donald.eat === john.eat)   // true
+
+        console.log('@', donald.__proto__ === Person.prototype)
+        // donald.__proto__.eat()
+        // donald.prototype.eat()
+
+    </script>
+</body>
+</html>

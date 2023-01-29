@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22_生成器實例02</title>
+</head>
+<body>
+    <script>
+
+        // 模擬獲取用戶數據、訂單數據、商品數據
+        function getUsers(){
+            setTimeout(() => {
+                let data = 'users data'
+                // 調用 next 方法，並把數據傳入
+                iterator.next(data)
+            }, 1000)
+        }
+        
+        function getOrders(){
+            setTimeout(() => {
+                let data = 'orders data'
+                iterator.next(data)
+            }, 1000)
+        }
+        
+        function getGoods(){
+            setTimeout(() => {
+                let data = 'goods data'
+                iterator.next(data)
+            }, 1000)
+        }
+
+        function * gen(){
+            let users = yield getUsers()
+            console.log(users);
+        
+            let orders = yield getOrders()
+            console.log(orders);
+
+            let goods = yield getGoods()
+            console.log(goods);
+        }
+
+
+        // 調用生成器函數
+        let iterator = gen()
+        iterator.next()
+
+        // 因為他們之間有關聯度：先得到用戶數據，才可以獲取訂單數據，再而獲取商品數據
+        // getUsers()
+        // getOrders()
+        // getGoods()
+
+    </script>
+</body>
+</html>

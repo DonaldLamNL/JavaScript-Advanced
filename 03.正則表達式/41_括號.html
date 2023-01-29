@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>41_括號</title>
+</head>
+<body>
+    <script>
+        // 中括號[] - 字符合集，匹配方括號中的任意字符
+        var rg1 = /^[abc]$/
+
+        // 大括號{} - 量詞符，裡面表示重複的次數
+        var rg2 = /^abc{3}$/        // 此時，只是要求 c 重複三次
+        console.log(rg2.test('abc'));       // false
+        console.log(rg2.test('abcabcabc')); // false
+        console.log(rg2.test('abccc'));     // true
+        
+        // 小括號() - 表示優先級
+        var rg3 = /^(abc){3}$/
+        console.log(rg3.test('abc'));       // false
+        console.log(rg3.test('abcabcabc')); // true
+        console.log(rg3.test('abccc'));     // false
+    </script>
+</body>
+</html>

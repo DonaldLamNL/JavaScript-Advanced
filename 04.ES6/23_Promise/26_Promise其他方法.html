@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>26_Promise其他方法</title>
+</head>
+<body>
+    <script>
+        
+        // 創建 Promise 對象
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('User data')
+                // reject('Error')
+            }, 1000);
+        })
+
+        // 調用 then 方法，方法的返回結果是 Promise 對象
+        const result = p.then(function(value){
+            console.log(value);
+
+            // 1. 非 Promise 對象的屬性
+            // return 123
+
+            // 2. 非 Promise 對象的屬性
+            // return new Promise((resolve, reject) => {
+            //     // resolve('ok')
+            //     reject('error')
+            // })
+
+            // 3. 拋出錯誤
+            // throw 'ERROR !!!'
+
+        }, function(reason){
+            throw new Error('ERROR')
+        })
+        console.log(result);
+
+        // 鏈式調用
+        p
+            .then(value => {}, reason => {})
+            .then(value => {}, reason => {})
+
+    </script>
+</body>
+</html>
+
+
+/* Promise{
+       [[PromiseState]]: "fulfilled"
+       [[PromiseResult]]: undefined 
+*/ }

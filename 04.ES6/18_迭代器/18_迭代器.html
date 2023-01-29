@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18_迭代器</title>
+</head>
+<body>
+    <script>
+
+        const students = ['Donald', 'John', 'May', 'Lily']
+
+        // for (const key in object) {}
+        for (const v of students) {
+            console.log(v)
+        }
+
+
+        // 獲取數組身上的 iterator 方法
+        let iterator = students[Symbol.iterator]()
+        // 調用對象的 next 方法
+        console.log(iterator.next())
+        console.log(iterator.next())
+        console.log(iterator.next())
+        console.log(iterator.next())
+        console.log(iterator.next())
+
+    </script>
+</body>
+</html>

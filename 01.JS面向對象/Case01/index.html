@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向對象 Tab</title>
+    <link rel="stylesheet" href="./styles/tab.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<!-- 
+    功能需求：
+        1. 點擊 tab 切換效果
+        2. 點解 + 添加 tab 項和內容框
+        3. 點擊 x 刪除當前的 tab 項和內容項
+        4. 雙擊文字能修改其內容
+-->
+
+<body>
+
+    <main>
+        <h4>
+            Js 面向對象 動態添加標籤頁
+        </h4>
+        <div class="tabsbox" id="tab">
+            <!-- tab 標籤 -->
+            <nav class="fisrstnav">
+                <ul>
+                    <li class="liactive"><span>測試1</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span>測試2</span><span class="iconfont icon-guanbi"></span></li>
+                    <li><span>測試3</span><span class="iconfont icon-guanbi"></span></li>
+                </ul>
+                <div class="tabadd">
+                    <span>+</span>
+                </div>
+            </nav>
+
+            <!-- tab 内容 -->
+            <div class="tabscon">
+                <section class="conactive">測試1</section>
+                <section>測試2</section>
+                <section>測試3</section>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/tab_bind.js"></script>
+</body>
+
+</html>

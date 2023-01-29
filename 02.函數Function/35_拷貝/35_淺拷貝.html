@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35_淺拷貝</title>
+</head>
+<body>
+    <script>
+        // 淺拷貝：只是拷貝一層，更深層次對象級別的只拷貝引用
+        var obj = {
+            id: 1,
+            name: 'Donald',
+            msg:{
+                age:18
+            }
+        }
+        var o = {}
+
+        // 遍歷對象
+        for(var k in obj){
+            // k - 屬性名   obj[k] - 屬性值
+            o[k] = obj[k]
+        }
+
+        // console.log('@ o', o);
+        // o.msg.age = 20
+        // console.log('# obj', obj);
+        
+        console.log('=====================');
+        Object.assign(o, obj)
+        console.log(o);
+        
+
+    </script>
+</body>
+</html>

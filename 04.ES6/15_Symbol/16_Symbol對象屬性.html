@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16_Symbol對象屬性</title>
+</head>
+<body>
+    <script>
+
+        // 方式一：對象外添加方法
+        let game1 = {
+            name: 'Tetris'
+        }
+        let left = Symbol('left')
+        let methods = {
+            right: Symbol('right'),
+        }
+        game1[left] = function(){
+            console.log('Move left')
+        }
+        game1[methods.right] = function(){
+            console.log('Move right')
+        }
+        console.log(game1)
+
+        // 方式二、對象內添加方法
+        let game2 = {
+            name: 'Tic Tac Toe',
+            [Symbol('cross')]: function(){
+                console.log('I put the cross')
+            },
+            [Symbol('circle')]: function(){
+                console.log('I put the circle')
+            },
+        }
+        console.log(game2)
+
+    </script>
+</body>
+</html>
